@@ -17,7 +17,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            background-color: var(--background-color);
+            background-color: var(--background-color );
             color: var(--text-color);
             line-height: 1.6;
         }
@@ -150,15 +150,6 @@
             font-size: 0.9em;
             color: var(--light-gray);
         }
-        #confirmation-message {
-            display: none;
-            margin-top: 20px;
-            padding: 15px;
-            background-color: var(--success-color);
-            color: var(--white);
-            border-radius: 8px;
-            font-weight: 500;
-        }
     </style>
 </head>
 <body>
@@ -209,36 +200,26 @@
         <section class="cta-section" id="cta">
             <h2>Pronto para ter clareza financeira?</h2>
             <p>Seja o primeiro a saber do lançamento e garanta 50% de desconto no plano Pro.</p>
-            <div id="form-wrapper">
-                <form class="form-container" onsubmit="handleFormSubmit(event)">
-                    <input type="email" id="email-input" placeholder="Seu melhor e-mail" required>
-                    <button type="submit">QUERO ACESSO ANTECIPADO</button>
-                </form>
-            </div>
-            <div id="confirmation-message">
-                Obrigado! Você está na lista. Entraremos em contato em breve com novidades.
-            </div>
+            
+            <!-- INÍCIO DA ALTERAÇÃO DO FORMULÁRIO -->
+            <form action="https://gmail.us3.list-manage.com/subscribe/post?u=b609c43ada8d2b8bf8c692e39&amp;id=9437eb3422&amp;f_id=0035d9e3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form-container" target="_blank">
+                <input type="email" name="EMAIL" id="email-input" placeholder="Seu melhor e-mail" required>
+                
+                <!-- Este campo é para evitar robôs, exigido pelo Mailchimp -->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                    <input type="text" name="b_b609c43ada8d2b8bf8c692e39_9437eb3422" tabindex="-1" value="">
+                </div>
+
+                <button type="submit">QUERO ACESSO ANTECIPADO</button>
+            </form>
+            <!-- FIM DA ALTERAÇÃO DO FORMULÁRIO -->
+
         </section>
     </main>
 
     <footer class="footer">
         <p>&copy; 2025 Lucro Certo. Todos os direitos reservados.</p>
     </footer>
-
-    <script>
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const email = document.getElementById('email-input').value;
-            if (email) {
-                // Em um cenário real, aqui você enviaria o e-mail para seu backend ou serviço de e-mail marketing.
-                console.log('E-mail capturado:', email);
-
-                // Esconde o formulário e mostra a mensagem de confirmação
-                document.getElementById('form-wrapper').style.display = 'none';
-                document.getElementById('confirmation-message').style.display = 'block';
-            }
-        }
-    </script>
 
 </body>
 </html>
